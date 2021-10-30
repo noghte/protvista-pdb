@@ -2,6 +2,7 @@ import ProtvistaPdbTrack from "./pdb-track";
 import { render } from "lit-html";
 import {
     scaleLinear,
+    event as d3Event
 } from "d3";
 
 class ProtvistaPdbScHistogram extends ProtvistaPdbTrack {
@@ -60,7 +61,7 @@ class ProtvistaPdbScHistogram extends ProtvistaPdbTrack {
             .attr("fill", "rgb(128, 128, 128)")
             .on("mouseover", d => {
                 const self = this;
-                const e = d3.event;
+                const e = d3Event;
 
                 const oldToolip = document.querySelectorAll("protvista-tooltip");
                 if (oldToolip && oldToolip[0] && oldToolip[0].className === 'click-open') {

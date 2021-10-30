@@ -1,4 +1,4 @@
-import * as d3 from "d3";
+import {select, event as d3Event} from "d3";
 import ProtvistaTrack from "protvista-track";
 
 const margin = {
@@ -15,11 +15,11 @@ class ProtvistaPdbTrack extends ProtvistaTrack {
   _createTrack() {
     this._layoutObj.init(this._data);
 
-    d3.select(this)
+    select(this)
     .selectAll("svg")
       .remove();
     
-    this.svg = d3.select(this)
+    this.svg = select(this)
       .append("div")
       .style("line-height", 0)
       .append("svg")
@@ -109,7 +109,7 @@ class ProtvistaPdbTrack extends ProtvistaTrack {
       })
       .on("mouseover", (f, i) => {
         const self = this;
-        const e = d3.event;
+        const e = d3Event;
   
         const oldToolip = document.querySelectorAll("protvista-tooltip");
         if(oldToolip && oldToolip[0] && oldToolip[0].className == 'click-open'){
@@ -171,7 +171,7 @@ class ProtvistaPdbTrack extends ProtvistaTrack {
       })
       .on("click", (d, i) => {
         d.trackIndex = i;
-        this.createTooltip(d3.event, d, true);
+        this.createTooltip(d3Event, d, true);
         this.dispatchEvent(
           new CustomEvent("protvista-click", {
             detail: d,
@@ -215,7 +215,7 @@ class ProtvistaPdbTrack extends ProtvistaTrack {
     if(e.type == 'click') tooltip.classList.add("click-open");
     document.body.appendChild(tooltip);
 
-    const toolTipEl = d3.select(tooltip).node();
+    const toolTipEl = select(tooltip).node();
     const tooltipDom = toolTipEl.getBoundingClientRect();
     const bottomSpace = window.innerHeight - e.clientY;
     const rightSpace = window.innerWidth - e.clientX;

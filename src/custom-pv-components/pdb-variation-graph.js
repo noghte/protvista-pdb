@@ -2,10 +2,8 @@ import ProtvistaPdbTrack from "./pdb-track";
 import {
   scaleLinear,
   select,
-  event as d3Event,
   line,
-  extent,
-  curveBasis
+  extent
 } from "d3";
 
 class ProtvistaPdbVariationGraph extends ProtvistaPdbTrack {

@@ -60,7 +60,7 @@ class VariationPlot {
         .attr("fill", d => d.color)
         .attr("tooltip-trigger", "true")
         .on("mouseover", f => {
-          const e = d3.event;
+          const e = d3Event;
     
           const oldToolip = document.querySelectorAll("protvista-tooltip");
           if(oldToolip && oldToolip[0] && oldToolip[0].className == 'click-open'){

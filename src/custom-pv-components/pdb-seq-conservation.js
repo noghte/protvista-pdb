@@ -1,5 +1,5 @@
 import ProtvistaPdbTrack from "./pdb-track";
-import { scaleLinear } from "d3";
+import { scaleLinear, select, event as d3Event } from "d3";
 
 class ProtvistaPdbSeqConservation extends ProtvistaPdbTrack {
 
@@ -29,11 +29,11 @@ class ProtvistaPdbSeqConservation extends ProtvistaPdbTrack {
     _createTrack() {
         this._layoutObj.init(this._data);
 
-        d3.select(this)
+        select(this)
             .selectAll("svg")
             .remove();
 
-        this.svg = d3.select(this)
+        this.svg = select(this)
             .append("div")
             .append("svg")
             .style('width', '100%')
@@ -144,7 +144,7 @@ class ProtvistaPdbSeqConservation extends ProtvistaPdbTrack {
                 this.locations
                     .on("mouseover", d => {
                         const self = this;
-                        const e = d3.event;
+                        const e = d3Event;
 
                         this.dispatchEvent(
                             new CustomEvent("change", {
@@ -177,7 +177,7 @@ class ProtvistaPdbSeqConservation extends ProtvistaPdbTrack {
                     .attr("tooltip-trigger", "true")
                     .on("mouseover", d => {
                         const self = this;
-                        const e = d3.event;
+                        const e = d3Event;
 
                         const oldToolip = document.querySelectorAll("protvista-tooltip");
                         if (oldToolip && oldToolip[0] && oldToolip[0].className == 'click-open') {
@@ -235,7 +235,7 @@ class ProtvistaPdbSeqConservation extends ProtvistaPdbTrack {
                                 type: "Sequence conservation"
                             }
                         };
-                        self.createTooltip(d3.event, tooltipData, true);
+                        self.createTooltip(d3Event, tooltipData, true);
                         self.dispatchEvent(
                             new CustomEvent("protvista-click", {
                                 detail: tooltipData,

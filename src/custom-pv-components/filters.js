@@ -1,4 +1,3 @@
-import { scaleLinear } from "d3";
 import cloneDeep from "lodash-es/cloneDeep";
 
 import groupBy from "lodash-es/groupBy";

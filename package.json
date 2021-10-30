@@ -1,27 +1,48 @@
 {
-  "name": "protvista-pdb",
+  "name": "protvista-prokino",
   "version": "2.0.1",
-  "description": "PDB ProtVista Viewer",
+  "description": "ProKinO's fork of PDB ProtVista Viewer",
   "files": [
     "dist",
     "src"
   ],
-  "main": "dist/protvista-pdb.js",
+  "main": "dist/protvista-prokino.js",
   "module": "src/index.js",
   "jsnext:main": "src/index.js",
-  "author": "Mandar Deshpande <mandar@ebi.ac.uk>",
+  "keywords": [
+    "prokino",
+    "protvista",
+    "pdbe",
+    "protein",
+    "nightingale"
+  ],
+  "author": "Saber Soleymani <postorder@gmail.com>",
   "contributors": [
+    "Mandar Deshpande <mandar@ebi.ac.uk>",
     "Typhaine Paysan-Lafosse <typhaine@ebi.ac.uk>"
   ],
   "license": "Apache 2.0",
+  "watch": {
+    "build": {
+      "patterns": [
+        "src"
+      ],
+      "extensions": "js,jsx"
+    }
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
-    "watch": "webpack -w --mode development --display minimal",
-    "serve": "http-server -p 1338"
+    "watch": "npm-watch",
+    "watch2": "webpack -w --mode development",
+    "serve": "http-server -p 1338",
+    "dev": "webpack-dev-server --mode=development",
+    "webpack-dev-server": "webpack-dev-server"
   },
   "dependencies": {
-    "lodash-es": "^4.17.11",
+    "@babel/preset-react": "^7.14.5",
+    "d3": "^5.16.0",
+    "lodash-es": "^4.17.21",
     "protvista-filter": "2.0.0",
     "protvista-manager": "2.0.0",
     "protvista-navigation": "2.0.0",
@@ -30,18 +51,21 @@
     "protvista-zoomable": "2.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.3.3",
-    "@babel/plugin-transform-runtime": "^7.6.2",
-    "@babel/preset-env": "^7.3.1",
-    "@babel/runtime": "^7.3.1",
-    "babel-loader": "^8.0.5",
-    "camelcase": "^5.0.0",
-    "clean-webpack-plugin": "^1.0.1",
-    "css-loader": "^2.1.0",
-    "style-loader": "^0.23.1",
-    "url-loader": "^1.1.2",
-    "webpack": "^4.29.5",
-    "webpack-cli": "^3.2.3",
-    "http-server": "^0.12.3"
+    "@babel/core": "^7.15.8",
+    "@babel/plugin-transform-runtime": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
+    "@babel/runtime": "^7.15.4",
+    "babel-loader": "^8.2.3",
+    "camelcase": "^6.2.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.4.0",
+    "html-webpack-plugin": "^5.4.0",
+    "http-server": "^14.0.0",
+    "path": "^0.12.7",
+    "style-loader": "^3.3.1",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.59.1",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.3.1"
   }
 }

@@ -4,8 +4,7 @@ import {
   scalePoint,
   axisLeft,
   axisRight,
-  select,
-  event as d3Event
+  select
 } from "d3";
 
 import processVariants from "./processVariants";
@@ -92,11 +91,11 @@ class ProtvistaPdbVariation extends ProtvistaPdbTrack {
   _createTrack() {
     this._layoutObj.init(this._data);
 
-    d3.select(this)
+    select(this)
     .selectAll("svg")
       .remove();
     
-    this.svg = d3.select(this)
+    this.svg = select(this)
       .append("div")
       .style("line-height", 0)
       .append("svg")
