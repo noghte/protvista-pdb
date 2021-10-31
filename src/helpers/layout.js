@@ -663,14 +663,18 @@ class LayoutHelper {
     }
 
     removeEventSubscription() {
+        function handleRemoveEvent()
+        {
+            console.log("removed")
+        }
         if(this.ctx.subscribeEvents){
-            document.removeEventListener("PDB.topologyViewer.click");
-            document.removeEventListener("PDB.topologyViewer.mouseover");
-            document.removeEventListener("PDB.topologyViewer.mouseout");
-            document.removeEventListener("PDB.litemol.click");
-            document.removeEventListener("PDB.litemol.mouseover");
-            document.removeEventListener("PDB.molstar.click");
-            document.removeEventListener("PDB.molstar.mouseover");
+            document.removeEventListener("PDB.topologyViewer.click",handleRemoveEvent);
+            document.removeEventListener("PDB.topologyViewer.mouseover",handleRemoveEvent);
+            document.removeEventListener("PDB.topologyViewer.mouseout",handleRemoveEvent);
+            document.removeEventListener("PDB.litemol.click",handleRemoveEvent);
+            document.removeEventListener("PDB.litemol.mouseover",handleRemoveEvent);
+            document.removeEventListener("PDB.molstar.click",handleRemoveEvent);
+            document.removeEventListener("PDB.molstar.mouseover",handleRemoveEvent);
         }
     }
 }

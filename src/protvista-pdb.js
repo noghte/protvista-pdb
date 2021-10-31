@@ -1,5 +1,5 @@
 import { html, render } from "lit-html";
-import "../styles/protvista-pdb.css"; // customised PDBe styling
+import "./protvista-pdb.css"; // customised PDBe styling
 import filterData from "./custom-pv-components/filters"; // filter component data for PDBe implementation
 
 // PDBe PV section-wise templates

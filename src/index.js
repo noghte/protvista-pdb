@@ -36,3 +36,4 @@ if (window.customElements) {
         registerWebComponents();
     });
 }
+export default registerWebComponents;

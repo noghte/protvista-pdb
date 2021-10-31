@@ -9,7 +9,7 @@ import {
 
 import processVariants from "./processVariants";
 import VariationPlot from "./variationPlot";
-import "../../styles/protvista-variation.css";
+import "../protvista-variation.css";
 import { _union, _getFilteredDataSet } from "./filters";
 
 const aaList = [

@@ -22,7 +22,7 @@ const config = {
     "resize-observer-polyfill": "ResizeObserver"
   },
   plugins: [
-    new CleanWebpackPlugin({cleanAfterEveryBuildPatterns: ['dist']})
+    new CleanWebpackPlugin({ cleanAfterEveryBuildPatterns: ['dist'] })
   ],
   module: {
     rules: [
@@ -30,8 +30,13 @@ const config = {
         test: /\.css$/,
         use: [
           "style-loader",
-          { loader: "css-loader", options: { importLoaders: 1 } }
-        ]
+          {
+            loader: "css-loader",
+            options: 
+            { 
+              importLoaders: 1
+            }
+          }]
       },
       {
         test: /.(jpg|jpeg|png|svg)$/,
@@ -39,23 +44,23 @@ const config = {
       },
       {
         test: /\.(js)$/,
-        exclude: function excludeCondition(path){
-            
-            const nonEs5SyntaxPackages = [
-              'lit-element',
-              'lit-html'
-            ]
-            
-            // DO transpile these packages
-            if (nonEs5SyntaxPackages.some( pkg => path.match(pkg))) {
-              return false;
-            }
-          
-            // Ignore all other modules that are in node_modules
-            if (path.match(/node_modules\\/)) { return true; }
-          
-            else return false;
-          },
+        exclude: function excludeCondition(path) {
+
+          const nonEs5SyntaxPackages = [
+            'lit-element',
+            'lit-html'
+          ]
+
+          // DO transpile these packages
+          if (nonEs5SyntaxPackages.some(pkg => path.match(pkg))) {
+            return false;
+          }
+
+          // Ignore all other modules that are in node_modules
+          if (path.match(/node_modules\\/)) { return true; }
+
+          else return false;
+        },
         use: {
           loader: "babel-loader",
           options: {
