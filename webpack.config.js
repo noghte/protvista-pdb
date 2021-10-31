@@ -11,7 +11,7 @@ const config = {
   output: {
     path: path.resolve(PACKAGE_ROOT_PATH, "dist"),
     library: camelCase(PKG_JSON.name, { pascalCase: true }),
-    filename: `${PKG_JSON.name}-${PKG_JSON.version}.js`
+    filename: `${PKG_JSON.name}.js`
   },
   target: "web",
   devtool: "source-map",
@@ -19,7 +19,6 @@ const config = {
     extensions: [".js"]
   },
   externals: {
-    d3: "d3",
     "resize-observer-polyfill": "ResizeObserver"
   },
   plugins: [

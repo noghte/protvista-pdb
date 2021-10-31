@@ -132,7 +132,7 @@ class ProtvistaPdbScHistogram extends ProtvistaPdbTrack {
                         type: "Sequence conservation"
                     }
                 };
-                self.createTooltip(d3.event, tooltipData, true);
+                self.createTooltip(d3Event, tooltipData, true);
                 self.dispatchEvent(
                     new CustomEvent("protvista-click", {     
                         detail: tooltipData,

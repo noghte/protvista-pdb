@@ -98,8 +98,8 @@ class ProtvistaPdbTooltip extends HTMLElement {
     }
 
     _updatePosition() {
-        this.style.top = `${this._top}px`;
-        this.style.left = `${this._left}px`;
+        this.top = `${this._top}px`;
+        this.left = `${this._left}px`;
     }
 
     render() {
